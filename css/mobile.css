@@ -1,0 +1,119 @@
+.hero-container {
+    width: 70%;
+}
+
+.hero-title {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.hero-text h2 {
+    font-size: 2.5rem;
+    font-weight: 600;
+}
+
+.hero-text p {
+    font-size: .8rem;
+}
+
+.hero-contact button {
+    padding: 15px 15px;
+    font-size: 1rem;
+    margin-top: 5px;
+}
+
+.about {
+    flex-direction: column;
+    margin: 1rem;
+}  
+
+.about-img {
+    display: none;
+    visibility: hidden;
+}
+
+.about-container {
+    width: 100%;
+}
+
+.about-title {
+    text-align: center;
+}
+
+.title-divider {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.about-txt p {
+    width: 100%;
+    margin: 0;
+    font-size: .95rem;
+}
+
+.skills {
+    display: flex;
+    flex-direction: column;
+}
+
+.skills h5 {
+    margin: 0;
+   text-align: center;
+}
+
+.about-btn {
+    display: flex;
+    justify-content: center;
+}
+
+.about-btn-contact,
+.about-btn-cv {
+    padding: 15px 20px;
+    font-size: 1rem;
+}
+
+.portfolio {
+   margin: 1rem;
+}
+
+.portfolio-title h3 {
+    font-size: .9rem;
+    margin-bottom: 8px;
+}
+
+.portfolio-title h2 {
+    font-size: 1.5rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+}
+
+.columna {
+    width: 100%;
+}
+
+.info h2 {
+    font-size: 2.5rem;
+}
+
+.info h3 {
+    font-size: 1.5rem;
+}
+
+.info p {
+    font-size: .9rem;
+    margin: 0;
+}
+
+.formulario {
+    padding: 0px;
+    margin-top: 22px;
+}
+
+.formulario form {
+    width: 300px;
+}
