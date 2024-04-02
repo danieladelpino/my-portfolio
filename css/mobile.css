@@ -3,7 +3,7 @@
 }
 
 .hero-title {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
     margin-bottom: 5px;
 }
 
@@ -25,7 +25,7 @@
 .about {
     flex-direction: column;
     margin: 1rem;
-}  
+}
 
 .about-img {
     display: none;
@@ -41,25 +41,27 @@
 }
 
 .title-divider {
-    width: 50%;
+    width: 200px;
     margin: auto;
     margin-bottom: 10px;
 }
 
 .about-txt p {
     width: 100%;
-    margin: 0;
+    margin-top: 20px;
+    margin-bottom: 20px;
     font-size: .95rem;
 }
 
 .skills {
     display: flex;
     flex-direction: column;
+    margin-bottom: 5px;
 }
 
 .skills h5 {
     margin: 0;
-   text-align: center;
+    text-align: center;
 }
 
 .about-btn {
@@ -74,11 +76,19 @@
 }
 
 .portfolio {
-   margin: 1rem;
+    margin: 1rem;
+}
+
+.portfolio-box {
+    margin: 40px;
+}
+
+.portfolio-content {
+    gap: 20px;
 }
 
 .portfolio-title h3 {
-    font-size: .9rem;
+    font-size: .7rem;
     margin-bottom: 8px;
 }
 
