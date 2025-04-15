@@ -20,11 +20,11 @@
 }
 
 .hero-contact button {
-    font-size: 1rem;
+    font-size: .8rem;
 }
 
 .hero-contact-icon svg {
-    width: 35px;
+    width: 30px;
     height: auto;
 }
 
