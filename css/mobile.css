@@ -3,7 +3,7 @@
 }
 
 .hero-title {
-    font-size: 1.2rem;
+    font-size: 1.5rem;
     margin-bottom: 5px;
 }
 
@@ -21,6 +21,15 @@
 
 .hero-contact button {
     font-size: 1rem;
+}
+
+.hero-contact-icon svg {
+    width: 35px;
+    height: auto;
+}
+
+.divisor{
+display: none;
 }
 
 .about {
@@ -114,7 +123,7 @@
 .columna {
     width: 100%;
     display: flex;
-        justify-content: center;
+    justify-content: center;
 }
 
 .info h2 {
