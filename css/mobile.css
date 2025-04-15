@@ -61,7 +61,7 @@ display: none;
 
 .about-txt p {
     width: 100%;
-    font-size: 1rem;
+    font-size: .8rem;
     margin: auto;
     text-align: center;
 }
@@ -87,7 +87,7 @@ display: none;
 .about-btn-contact,
 .about-btn-cv {
     padding: 15px 20px;
-    font-size: 1rem;
+    font-size: .8rem;
     margin: 5px 0px;
 }
 
