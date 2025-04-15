@@ -28,8 +28,8 @@
     height: auto;
 }
 
-.divisor{
-display: none;
+.divisor {
+    display: none;
 }
 
 .about {
@@ -39,8 +39,12 @@ display: none;
 }
 
 .hero-img {
-    width: 15rem;
-    height: 15rem;
+    width: 11rem;
+    height: 11rem;
+}
+
+.about-img {
+    margin: 35px 0px 0px 0px;
 }
 
 .about-container {
