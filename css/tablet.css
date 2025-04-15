@@ -8,29 +8,24 @@
 }
 
 .hero-text h2 {
-    font-size: 4rem;
-    font-weight: 600;
+    font-size: 3rem;
 }
 
 .hero-text p {
-    font-size: 1.2rem;
-}
-
-.hero-contact button {
-    padding: 15px 15px;
-    font-size: 1.4rem;
-    margin-top: 8px;
+    font-size: 1rem;
 }
 
 .about {
-    flex-direction: column;
+    flex-direction: column-reverse;
+    gap: 30px;
     margin: 0 80px;
 }
 
-.about-img {
-    display: none;
-    visibility: hidden;
+.hero-img {
+    width: 15rem;
+    height: 15rem;
 }
+
 
 .about-container {
     width: 100%;
@@ -38,10 +33,10 @@
 
 .about-title {
     text-align: center;
+    font-size: 1rem;
 }
 
 .title-divider {
-    width: 40%;
     margin: auto;
     margin-bottom: 10px;
 }
@@ -49,7 +44,8 @@
 .about-txt p {
     width: 100%;
     margin: 0;
-    font-size: .95rem;
+    font-size: 1rem;
+    text-align: center;
 }
 
 .skills {
@@ -76,7 +72,7 @@
 .about-btn-contact,
 .about-btn-cv {
     padding: 15px 20px;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .portfolio {

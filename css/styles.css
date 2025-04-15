@@ -31,7 +31,7 @@ a {
   display: flex;
   justify-content: start;
   align-items: center;
-  width: 60%;
+  width: 65%;
 
 }
 
@@ -63,14 +63,34 @@ a {
 
 .hero-contact button {
   background: linear-gradient(135deg, #bc47ff, #7304b3);
-  padding: 15px 25px;
+  padding: 10px 15px;
   font-size: 1.1rem;
   border: none;
   border-radius: 8px;
   font-weight: 600;
   margin-top: 15px;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
+
+
+.hero-contact button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.hero-contact button:hover::after {
+  left: 125%;
+}
+
 
 .hero-contact-icon {
   margin-top: 20px;
@@ -94,11 +114,91 @@ a {
   z-index: -1;
 }
 
+.hero-img {
+  background-image: url(/img/profile-daniela-del-pino.jpg);
+  width: 25rem;
+  height: 25rem;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  border: 3px solid white;
+  animation: morph 8s ease-in-out infinite;
+  border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+  position: relative;
+  transition: all 1s ease-in-out;
+}
+
+
+@keyframes morph {
+  0% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+
+  50% {
+    border-radius: 30% 60% 70% 40%/50% 60% 30% 60%;
+  }
+
+  100% {
+    border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+  }
+}
+
+.waving-hand {
+  width: 3.5rem;
+  animation: wave 2s ease-in-out infinite, fadeIn 1s ease-out 1;
+  transform-origin: 70% 70%;
+  display: inline-block;
+}
+
+/* Animación de saludo */
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  15% {
+    transform: rotate(20deg);
+  }
+
+  30% {
+    transform: rotate(-15deg);
+  }
+
+  45% {
+    transform: rotate(15deg);
+  }
+
+  60% {
+    transform: rotate(-10deg);
+  }
+
+  75% {
+    transform: rotate(10deg);
+  }
+
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* SECTION 2 */
 
 .about {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   margin: 0 80px;
 
@@ -135,7 +235,26 @@ a {
   margin-top: 10px;
   margin-right: 8px;
   cursor: pointer;
+  position: relative;
+  overflow: hidden;
 }
+
+.about-btn-contact::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.about-btn-contact:hover::after {
+  left: 125%;
+}
+
 
 .about-btn-cv {
   background: transparent;
@@ -152,6 +271,11 @@ a {
 
 .about-btn-cv a {
   text-decoration: none;
+}
+
+.about-btn-cv:hover {
+  box-shadow: 0 0 20px #bc47ff88;
+  color: #fff;
 }
 
 .skills {
@@ -194,21 +318,26 @@ a {
 
 /* SECTION 3 */
 
+@media (min-width:1560px) {
+  .portfolio-content {
+    max-width: 1200px;
+    margin: auto;
+  }
+}
 
 .portfolio-content {
-  padding: 30px;
+  padding: 0px;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   gap: 50px;
-
 }
 
 .portfolio-title {
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 5px;
+  margin-top: 30px;
+  margin-bottom: 40px;
   font-size: 1.2rem;
 }
 
@@ -227,8 +356,12 @@ a {
   gap: 20px;
   overflow: hidden;
   width: 350px;
-  height: 500px;
+  height: 530px;
   background-color: #0c1338;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .card-container {
@@ -239,9 +372,9 @@ a {
 .card-container::before {
   content: '';
   position: absolute;
-  top: -4px;
+  top: -2px;
   left: -4px;
-  right: -4px;
+  right: -1px;
   bottom: -4px;
   z-index: -1;
   background: #fff;
@@ -252,14 +385,13 @@ a {
 .card-container::after {
   content: '';
   position: absolute;
-  top: -20px;
+  top: 15px;
   left: -20px;
-  right: -20px;
-  bottom: -20px;
+  right: 0px;
+  bottom: -40px;
   z-index: -2;
   filter: blur(30px);
   border-radius: 20px;
-
 }
 
 .card-container::before,
@@ -277,7 +409,6 @@ a {
 
 .card p {
   margin: 0 auto;
-  padding: 10px;
   width: 300px;
   margin-bottom: 10px;
   font-size: .9rem;
@@ -300,6 +431,7 @@ a {
   display: flex;
   justify-content: center;
   gap: 16px;
+  margin: 20px 0px 0px 0px;
 }
 
 .stack img {
@@ -320,10 +452,17 @@ a {
 }
 
 .links a {
-  font-size: 1.1rem;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+  gap: 5px;
+  font-size: 1rem;
   font-weight: 600;
-  text-decoration: none;
-  margin-right: 10px;
+}
+
+.links svg {
+  width: 25px;
+  height: 30px;
 }
 
 /* SECTION 4  */
@@ -399,6 +538,24 @@ a {
   font-weight: 600;
   cursor: pointer;
   border: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.formulario-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: skewX(-20deg);
+  transition: left 0.6s ease;
+}
+
+.formulario-btn:hover::after {
+  left: 125%;
 }
 
 
@@ -533,4 +690,17 @@ img {
   100% {
     box-shadow: 0px 0px 15px 40px #Ea5252;
   }
+}
+
+.fp-watermark {
+  display: none;
+}
+
+.no-animation {
+  animation: none;
+}
+
+.icon-img {
+  width: 30px;
+  height: auto;
 }
