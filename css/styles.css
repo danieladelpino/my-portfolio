@@ -63,8 +63,8 @@ a {
 
 .hero-contact button {
   background: linear-gradient(135deg, #bc47ff, #7304b3);
-  padding: 10px 15px;
-  font-size: 1.1rem;
+  padding: 15px 25px;
+  font-size: 1rem;
   border: none;
   border-radius: 8px;
   font-weight: 600;
@@ -116,7 +116,7 @@ a {
 }
 
 .hero-img {
-  background-image: url(/img/profile-daniela-del-pino.jpg);
+  background-image: url(/img/delpino-profile.jpg);
   width: 25rem;
   height: 25rem;
   background-size: cover;
@@ -206,7 +206,11 @@ a {
 }
 
 .about-container {
-  width: 50%;
+  width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .about-title {
@@ -221,15 +225,16 @@ a {
 }
 
 .about-txt p {
+  max-width: 700px;
   font-weight: 600;
   font-size: 1rem;
-  width: 80%;
+  text-align: center;
 }
 
 .about-btn-contact {
   background: linear-gradient(135deg, #bc47ff, #7304b3);
-  padding: 17px 25px;
-  font-size: 1.1rem;
+  padding: 15px 25px;
+  font-size: 1rem;
   border: none;
   border-radius: 3px;
   font-weight: 600;
@@ -259,8 +264,8 @@ a {
 
 .about-btn-cv {
   background: transparent;
-  padding: 15px 18px;
-  font-size: 1.1rem;
+  padding: 13px 18px;
+  font-size: 1rem;
   font-weight: 600;
   margin-top: 10px;
   cursor: pointer;
@@ -275,7 +280,7 @@ a {
 }
 
 .about-btn-cv:hover {
-  box-shadow: 0 0 20px #bc47ff88;
+  box-shadow: 0 0 10px #bc47ff88;
   color: #fff;
 }
 
