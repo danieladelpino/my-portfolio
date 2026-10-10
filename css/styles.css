@@ -734,7 +734,7 @@ body {
   .theme-toggle { width: 40px; height: 40px; }
 
   .hero-inner { gap: 20px; padding-top: 80px; }
-  .profile-card { width: 180px; }
+  .profile-card { display: none; }
   .profile-info { padding-top: 10px; }
   .hero-greeting { font-size: 2.3rem; }
   .hero-title { font-size: 1.45rem; }
@@ -1866,11 +1866,11 @@ body {
 @media (max-width: 480px) {
   .contact-actions {
     gap: 14px 22px;
+    justify-content: center;
   }
 
   .btn-light {
     width: 100%;
-    justify-content: center;
   }
 
   .contact-details li {
