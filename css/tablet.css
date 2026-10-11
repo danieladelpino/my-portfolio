@@ -1,58 +1,70 @@
-.about {
-    flex-direction: column-reverse;
-    gap: 30px;
-    margin: 0 80px;
+/* ==========================================================
+   TABLET + MOBILE (max-width: 1023px)
+   Mobile (max-width: 767px) sobreescribe lo necesario en mobile.css
+   Hero, proyectos y contacto: en tablet se ven igual que desktop; el carrusel es solo mobile
+   ========================================================== */
+
+/* ---------- Header + Hero ---------- */
+
+/* El hero en tablet se ve igual que en desktop (dos columnas con la tarjeta) */
+
+.site-header {
+  padding: 16px 32px;
 }
 
-
-.about-container {
-    width: 100%;
+.brand-name {
+  white-space: nowrap;
 }
 
-.about-title {
-    text-align: center;
-    font-size: 1rem;
+.chip-role { right: -12px; }
+
+/* Tablets angostas: achicamos un poco para que entre todo como en desktop */
+@media (min-width: 768px) and (max-width: 900px) {
+  .hero-inner {
+    padding-left: 32px;
+    padding-right: 32px;
+    gap: 28px;
+  }
+
+  .hero-actions {
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-secondary {
+    padding: 13px 16px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .contact-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    padding-left: 32px;
+    padding-right: 32px;
+    gap: 28px;
+  }
+
+  .contact-submit {
+    white-space: nowrap;
+  }
 }
 
-.title-divider {
-    margin: auto;
-    margin-bottom: 10px;
+/* ---------- Proyectos ---------- */
+
+/* Mismo acordeón que desktop. El texto de la tarjeta activa toma el ancho
+   real de la tarjeta (--a lo calcula projects.js) para que no se corte. */
+.project-content {
+  width: var(--a, 100%);
 }
 
-.about-txt p {
-    width: 100%;
-    margin: 0;
-    font-size: 1rem;
-    text-align: center;
+/* ---------- Contacto ---------- */
+
+/* Dos columnas como en desktop, con un poco menos de aire */
+.contact-inner {
+  gap: 36px;
 }
 
-.skills {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.skills h5 {
-    margin: 0;
-    text-align: center;
-}
-
-.skills-logo ul {
-    margin-top: 5px;
-}
-
-.about-btn {
-    display: flex;
-    justify-content: center;
-}
-
-.about-btn-contact,
-.about-btn-cv {
-    padding: 15px 20px;
-    font-size: 1rem;
-}
-
-.formulario form {
-    width: 300px;
+.contact-card {
+  padding: 26px 22px;
 }

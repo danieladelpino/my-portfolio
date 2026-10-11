@@ -63,7 +63,10 @@
     const panels = [...gallery.querySelectorAll('.project')];
     const dots = [...dotsEl.querySelectorAll('.projects-dot')];
     const viewport = document.querySelector('.projects-viewport');
-    const mobileQuery = window.matchMedia('(max-width: 900px)');
+    // Mobile: carrusel de a una tarjeta (mismo corte que mobile.css).
+    // Tablet y desktop usan el acordeón de 3.
+    const carouselQuery = window.matchMedia('(max-width: 767px)');
+    const isCarousel = () => carouselQuery.matches;
 
     const PER_PAGE = 3;                          // tarjetas visibles a la vez
     const visibleCount = Math.min(PER_PAGE, PROJECTS.length);
@@ -72,14 +75,17 @@
     let collapsedWidth = 0;
     let gap = 0;
 
-    // Calcula el tamaño de las tarjetas para que entren justo 3 en pantalla
+    // Desktop: calcula el tamaño de las tarjetas para que entren justo 3.
+    // Carrusel: solo indica qué tarjeta mostrar; el desplazamiento lo hace el CSS.
     const sizeGallery = () => {
-        if (mobileQuery.matches) {
+        if (isCarousel()) {
             gallery.style.removeProperty('--c');
             gallery.style.removeProperty('--a');
             gallery.style.transform = '';
+            gallery.style.setProperty('--index', active);
             return;
         }
+        gallery.style.removeProperty('--index');
         const width = viewport.clientWidth;
         gap = parseFloat(getComputedStyle(gallery).columnGap) || 0;
         collapsedWidth = visibleCount > 1 ? Math.max(80, Math.round(width * 0.16)) : 0;
@@ -92,16 +98,16 @@
     const goTo = (index) => {
         active = (index + PROJECTS.length) % PROJECTS.length;
 
-        // Si la tarjeta está fuera de las 3 visibles, pasamos al grupo que la contiene
-        const previousStart = start;
+        // Desktop: si la tarjeta está fuera de las 3 visibles, pasamos al grupo que la contiene
         if (active < start || active >= start + visibleCount) {
             const page = Math.floor(active / PER_PAGE);
             start = Math.min(page * PER_PAGE, PROJECTS.length - visibleCount);
         }
 
+        const carousel = isCarousel();
         panels.forEach((panel, i) => {
             const isActive = i === active;
-            const isVisible = i >= start && i < start + visibleCount;
+            const isVisible = carousel ? isActive : i >= start && i < start + visibleCount;
             panel.classList.toggle('active', isActive);
             panel.classList.toggle('is-off', !isVisible);
             panel.setAttribute('aria-current', isActive ? 'true' : 'false');
@@ -111,16 +117,6 @@
         });
 
         sizeGallery();
-
-        // En el celular el cambio de grupo entra con un fade desde abajo
-        if (mobileQuery.matches && previousStart !== start && !reduceMotion) {
-            panels.filter(p => !p.classList.contains('is-off')).forEach((panel, i) => {
-                panel.animate?.(
-                    [{ opacity: 0, transform: 'translateY(24px)' }, { opacity: 1, transform: 'none' }],
-                    { duration: 500, delay: i * 70, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'backwards' }
-                );
-            });
-        }
 
         dots.forEach((dot, i) => {
             dot.classList.remove('active');
@@ -138,7 +134,53 @@
     };
 
     window.addEventListener('resize', sizeGallery);
-    mobileQuery.addEventListener?.('change', sizeGallery);
+    // Al cruzar el corte desktop <-> tablet recalculamos qué tarjetas se ven
+    carouselQuery.addEventListener?.('change', () => goTo(active));
+
+    // Swipe en el carrusel: la tarjeta sigue al dedo y al soltar pasa a la siguiente/anterior
+    let touchX = 0, touchY = 0, dragX = 0, dragging = null;
+    gallery.addEventListener('touchstart', (e) => {
+        if (!isCarousel()) return;
+        touchX = e.touches[0].clientX;
+        touchY = e.touches[0].clientY;
+        dragX = 0;
+        dragging = null;                  // todavía no sabemos si es horizontal o vertical
+        section.classList.add('is-hovered');
+    }, { passive: true });
+
+    gallery.addEventListener('touchmove', (e) => {
+        if (!isCarousel()) return;
+        const dx = e.touches[0].clientX - touchX;
+        const dy = e.touches[0].clientY - touchY;
+        if (dragging === null && (Math.abs(dx) > 8 || Math.abs(dy) > 8)) {
+            dragging = Math.abs(dx) > Math.abs(dy);
+            if (dragging) {
+                gallery.classList.add('is-dragging');
+                // Evita que fullPage cambie de sección mientras se desliza el carrusel
+                window.fullpage_api?.setAllowScrolling(false);
+            }
+        }
+        if (!dragging) return;
+        // Resistencia en los extremos
+        const atEdge = (active === 0 && dx > 0) || (active === PROJECTS.length - 1 && dx < 0);
+        dragX = atEdge ? dx * 0.3 : dx;
+        gallery.style.setProperty('--drag', `${dragX}px`);
+    }, { passive: true });
+
+    const endDrag = () => {
+        if (!isCarousel()) return;
+        section.classList.remove('is-hovered');
+        if (!dragging) return;
+        gallery.classList.remove('is-dragging');
+        gallery.style.removeProperty('--drag');
+        window.fullpage_api?.setAllowScrolling(true);
+        const threshold = Math.min(80, viewport.clientWidth * 0.2);
+        if (dragX < -threshold && active < PROJECTS.length - 1) goTo(active + 1);
+        else if (dragX > threshold && active > 0) goTo(active - 1);
+        dragging = null;
+    };
+    gallery.addEventListener('touchend', endDrag);
+    gallery.addEventListener('touchcancel', endDrag);
 
     // Clicks
     panels.forEach((panel, i) => {
@@ -167,8 +209,13 @@
     });
 
     // Pausa al pasar el mouse o cuando la sección no está a la vista
-    gallery.addEventListener('mouseenter', () => section.classList.add('is-hovered'));
-    gallery.addEventListener('mouseleave', () => section.classList.remove('is-hovered'));
+    // (solo con mouse: en touch el "hover" queda pegado y frenaría el autoplay)
+    gallery.addEventListener('pointerenter', (e) => {
+        if (e.pointerType === 'mouse') section.classList.add('is-hovered');
+    });
+    gallery.addEventListener('pointerleave', (e) => {
+        if (e.pointerType === 'mouse') section.classList.remove('is-hovered');
+    });
 
     if ('IntersectionObserver' in window) {
         new IntersectionObserver(([entry]) => {

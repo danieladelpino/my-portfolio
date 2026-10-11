@@ -1,66 +1,142 @@
-.divisor {
-    display: none;
+/* ==========================================================
+   MOBILE (max-width: 767px)
+   Se carga después de tablet.css, así que solo pisa lo necesario
+   ========================================================== */
+
+/* ---------- Header + Hero ---------- */
+
+.site-header {
+  grid-template-columns: 1fr auto;
+  column-gap: 12px;
+  padding: 16px 20px;
 }
 
-.about {
-    flex-direction: column-reverse;
-    gap: 30px;
-    margin: 1rem;
+.main-nav {
+  display: none;
 }
 
-.about-img {
-    margin: 35px 0px 0px 0px;
+.brand-name { font-size: 14px; }
+.header-tools { gap: 14px; }
+.theme-toggle { width: 40px; height: 40px; }
+
+/* En el celular el hero pasa a una sola columna, sin la tarjeta de perfil */
+.hero-inner {
+  grid-template-columns: 1fr;
+  align-content: center;
+  gap: 20px;
+  padding: 80px 20px 50px;
 }
 
-.about-container {
-    width: 100%;
+.hero-visual,
+.hero-scroll { display: none; }
+
+.hero-badge { font-size: 0.75rem; padding: 6px 12px; }
+.hero-greeting { margin-top: 16px; font-size: 2.3rem; }
+.hero-title { font-size: 1.45rem; }
+.hero-description { margin-top: 16px; font-size: 1rem; }
+.hero-actions, .hero-socials { margin-top: 20px; }
+.btn-primary, .btn-secondary { padding: 12px 18px; font-size: 0.9rem; }
+.hero-socials a { width: 44px; height: 44px; }
+
+/* ---------- Proyectos ---------- */
+
+.projects-inner {
+  padding: 84px 18px 32px;
+  justify-content: flex-start;
 }
 
-.about-title {
-    text-align: center;
-    font-size: 1rem;
-    margin-bottom: 20px;
+.projects-header {
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0;
+  margin-bottom: 24px;
 }
 
-.title-divider {
-    max-width: 180px;
-    margin: auto;
-    margin-bottom: 10px;
+.projects-subtitle { font-size: 0.95rem; }
+
+.projects-controls {
+  width: 100%;
+  justify-content: flex-end;
+  margin-top: -6px;
 }
 
-.about-txt p {
-    width: 100%;
-    font-size: .8rem;
-    margin: auto;
-    text-align: center;
+.projects-arrow { width: 46px; height: 46px; }
+
+/* Carrusel: una tarjeta a la vez, se desliza horizontalmente */
+.projects-viewport {
+  padding: 20px 0 70px;
+  margin: -20px 0 -70px;
+  touch-action: pan-y;
 }
 
-.skills {
-    display: flex;
+.projects-gallery {
+  --gap: 12px;
+  gap: var(--gap);
+  height: clamp(380px, 55vh, 480px);
+  transform: translateX(calc(var(--index, 0) * -1 * (100% + var(--gap)) + var(--drag, 0px)));
+  transition: transform 0.6s cubic-bezier(.65, 0, .25, 1);
+}
+
+.projects-gallery.is-dragging {
+  transition: none;
+}
+
+.project,
+.project.active {
+  flex: 0 0 100%;
+  border-radius: 18px;
+}
+
+.project.is-off { opacity: 0.4; }
+
+/* El nombre vertical solo tiene sentido en el acordeón de desktop */
+.project-vertical-name { display: none; }
+
+.project-type { font-size: 0.72rem; padding: 5px 12px; }
+
+.project-content {
+  width: 100%;
+  padding: 0 18px 20px;
+}
+
+.project-name { font-size: 1.35rem; }
+.project-desc { font-size: 0.85rem; }
+
+.project-stack { margin-top: 12px; gap: 6px; }
+.project-stack li { font-size: 0.72rem; padding: 4px 10px; }
+
+.project-link {
+  margin-top: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+/* ---------- Contacto ---------- */
+
+.contact-inner {
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 90px 20px 40px;
+}
+
+.contact-title { margin-top: 18px; }
+.contact-actions, .contact-details { margin-top: 28px; }
+.contact-link { font-size: 14px; }
+.site-footer { padding: 20px 24px; }
+
+@media (max-width: 480px) {
+  .contact-actions {
+    gap: 14px 22px;
+    justify-content: center;
+  }
+
+  .btn-light { width: 100%; }
+  .contact-details li { font-size: 0.9rem; }
+
+  .site-footer {
     flex-direction: column;
     align-items: center;
-    margin: 25px 0px 5px 0px;
-}
-
-.skills h5 {
-    margin: 0;
     text-align: center;
-}
-
-.about-btn {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    width: 100%;
-}
-
-.about-btn-contact,
-.about-btn-cv {
-    padding: 15px 20px;
-    font-size: .8rem;
-    margin: 5px 0px;
-}
-
-.formulario form {
-    width: 300px;
+    gap: 4px;
+  }
 }

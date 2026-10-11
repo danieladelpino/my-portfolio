@@ -7,12 +7,14 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/styles.css">
-    <link rel="stylesheet" media="screen and (max-width: 767px)" href="./css/mobile.css">
-    <link rel="stylesheet" media="screen and (min-width: 768px) and (max-width: 1023px)" href="./css/tablet.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/4.0.22/fullpage.css">
+    <!-- Desktop (base) -> tablet (hasta 1023px) -> mobile (hasta 767px) -->
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" media="screen and (max-width: 1023px)" href="./css/tablet.css">
+    <link rel="stylesheet" media="screen and (max-width: 767px)" href="./css/mobile.css">
     <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <script>try{var t=localStorage.getItem("theme");if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+    <!-- Tema: usa el guardado por el usuario; si no hay, sigue el del sistema/navegador -->
+    <script>(function () { var t = null; try { t = localStorage.getItem("theme"); } catch (e) { } if (t !== "light" && t !== "dark") { t = window.matchMedia && window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"; } document.documentElement.dataset.theme = t; })();</script>
     <title>Daniela del Pino | Front End Developer</title>
 </head>
 
@@ -20,7 +22,8 @@
 
     <!-- Header -->
     <header class="site-header">
-        <a href="#inicio" class="brand"><span class="brand-dot"></span><span class="brand-name">Daniela del Pino</span></a>
+        <a href="#inicio" class="brand"><span class="brand-dot"></span><span class="brand-name">Daniela del
+                Pino</span></a>
 
         <nav class="main-nav" aria-label="Principal">
             <ul id="main-nav">
@@ -39,8 +42,16 @@
                 <button type="button" data-lang="it">IT</button>
             </div>
             <button type="button" class="theme-toggle" aria-label="Cambiar tema">
-                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" /></svg>
-                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" /><path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" /></svg>
+                <svg class="icon-moon" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z" />
+                </svg>
+                <svg class="icon-sun" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M8 12a4 4 0 1 0 8 0a4 4 0 1 0 -8 0" />
+                    <path
+                        d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7" />
+                </svg>
             </button>
         </div>
     </header>
@@ -66,38 +77,88 @@
                     </h2>
 
                     <h1 class="hero-title reveal" style="--d: .25s">
-                        <span class="hero-typed" aria-hidden="true"></span><span class="hero-caret" aria-hidden="true"></span>
+                        <span class="hero-typed" aria-hidden="true"></span><span class="hero-caret"
+                            aria-hidden="true"></span>
                         <span class="sr-only" data-i18n="role">Desarrolladora Front End</span>
                     </h1>
 
                     <p class="hero-description reveal" style="--d: .35s">
                         <span data-i18n="description">Apasionada Desarrolladora Front End ubicada en Argentina.</span>
-                        <svg class="hero-pin" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg>
+                        <svg class="hero-pin" xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                            <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                            <path
+                                d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                        </svg>
                     </p>
 
                     <div class="hero-actions reveal" style="--d: .45s">
                         <a href="#contacto" class="btn-primary">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14l11 -11" /><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M10 14l11 -11" />
+                                <path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                            </svg>
                             <span data-i18n="contact">Contáctame</span>
                         </a>
-                        <a href="https://docs.google.com/document/d/1jO_4Hlw9E8ZW6rBDp8bQzK18vmWjG1sfsBeN01uuJuM/edit?usp=sharing" class="btn-secondary" target="_blank">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M12 17v-6" /><path d="M9.5 14.5l2.5 2.5l2.5 -2.5" /></svg>
+                        <a href="https://docs.google.com/document/d/1jO_4Hlw9E8ZW6rBDp8bQzK18vmWjG1sfsBeN01uuJuM/edit?usp=sharing"
+                            class="btn-secondary" target="_blank">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                                <path d="M12 17v-6" />
+                                <path d="M9.5 14.5l2.5 2.5l2.5 -2.5" />
+                            </svg>
                             <span data-i18n="cv">Descargar CV</span>
                         </a>
                     </div>
 
                     <div class="hero-socials reveal" style="--d: .55s">
-                        <a href="https://www.linkedin.com/in/daniela-del-pino/" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" /><path d="M8 11l0 5" /><path d="M8 8l0 .01" /><path d="M12 16l0 -5" /><path d="M16 16v-3a2 2 0 0 0 -4 0" /></svg>
+                        <a href="https://www.linkedin.com/in/daniela-del-pino/" target="_blank" rel="noopener"
+                            aria-label="LinkedIn">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M4 4m0 2a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-12a2 2 0 0 1 -2 -2z" />
+                                <path d="M8 11l0 5" />
+                                <path d="M8 8l0 .01" />
+                                <path d="M12 16l0 -5" />
+                                <path d="M16 16v-3a2 2 0 0 0 -4 0" />
+                            </svg>
                         </a>
                         <a href="https://github.com/danieladelpino" target="_blank" rel="noopener" aria-label="GitHub">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M9 19c-4.3 1.4 -4.3 -2.5 -6 -3m12 5v-3.5c0 -1 .1 -1.4 -.5 -2c2.8 -.3 5.5 -1.4 5.5 -6a4.6 4.6 0 0 0 -1.3 -3.2a4.2 4.2 0 0 0 -.1 -3.2s-1.1 -.3 -3.5 1.3a12.3 12.3 0 0 0 -6.2 0c-2.4 -1.6 -3.5 -1.3 -3.5 -1.3a4.2 4.2 0 0 0 -.1 3.2a4.6 4.6 0 0 0 -1.3 3.2c0 4.6 2.7 5.7 5.5 6c-.6 .6 -.6 1.2 -.5 2v3.5" />
+                            </svg>
                         </a>
                         <a href="mailto:danielaabigaildelpino@gmail.com" aria-label="Email">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path
+                                    d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                                <path d="M3 7l9 6l9 -6" />
+                            </svg>
                         </a>
-                        <a href="https://docs.google.com/document/d/1jO_4Hlw9E8ZW6rBDp8bQzK18vmWjG1sfsBeN01uuJuM/edit?usp=sharing" target="_blank" rel="noopener" aria-label="CV">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3v4a1 1 0 0 0 1 1h4" /><path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" /><path d="M9 9l1 0" /><path d="M9 13l6 0" /><path d="M9 17l6 0" /></svg>
+                        <a href="https://docs.google.com/document/d/1jO_4Hlw9E8ZW6rBDp8bQzK18vmWjG1sfsBeN01uuJuM/edit?usp=sharing"
+                            target="_blank" rel="noopener" aria-label="CV">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                                <path d="M9 9l1 0" />
+                                <path d="M9 13l6 0" />
+                                <path d="M9 17l6 0" />
+                            </svg>
                         </a>
                     </div>
                 </div>
@@ -111,17 +172,33 @@
                         <div class="profile-info">
                             <p class="profile-name">Daniela del Pino <span data-i18n="pronouns">· ella</span></p>
                             <p class="profile-row">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="profile-pin" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" class="profile-pin" aria-hidden="true">
+                                    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                                    <path
+                                        d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                                </svg>
                                 Argentina
                             </p>
                             <p class="profile-row profile-message">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <path
+                                        d="M3 20l1.3 -3.9c-2.324 -3.437 -1.426 -7.872 2.1 -10.374c3.526 -2.501 8.59 -2.296 11.845 .48c3.255 2.777 3.695 7.266 1.029 10.501c-2.666 3.235 -7.615 4.215 -11.574 2.293l-4.7 1" />
+                                </svg>
                                 <span data-i18n="thanks">¡Gracias por pasar y conocer mi portfolio!</span>
                             </p>
                         </div>
 
                         <span class="chip chip-role">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 8l-4 4l4 4" /><path d="M17 8l4 4l-4 4" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                                stroke-linejoin="round" aria-hidden="true">
+                                <path d="M7 8l-4 4l4 4" />
+                                <path d="M17 8l4 4l-4 4" />
+                            </svg>
                             Front End
                         </span>
                         <span class="chip chip-open"><span class="chip-dot"></span> Open to work</span>
@@ -130,7 +207,10 @@
             </div>
 
             <a href="#proyectos" class="hero-scroll" aria-label="Scroll">
-                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9l6 6l6 -6" /></svg>
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M6 9l6 6l6 -6" />
+                </svg>
             </a>
         </div>
 
@@ -147,12 +227,25 @@
                     </div>
 
                     <div class="projects-controls">
-                        <p class="projects-counter"><span class="projects-current">01</span> / <span class="projects-total">01</span></p>
+                        <p class="projects-counter"><span class="projects-current">01</span> / <span
+                                class="projects-total">01</span></p>
                         <button type="button" class="projects-arrow projects-prev" aria-label="Anterior">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" /><path d="M5 12l6 6" /><path d="M5 12l6 -6" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12l14 0" />
+                                <path d="M5 12l6 6" />
+                                <path d="M5 12l6 -6" />
+                            </svg>
                         </button>
                         <button type="button" class="projects-arrow projects-next" aria-label="Siguiente">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12l14 0" />
+                                <path d="M13 18l6 -6" />
+                                <path d="M13 6l6 6" />
+                            </svg>
                         </button>
                     </div>
                 </div>
@@ -180,21 +273,43 @@
                         <div class="contact-actions">
                             <button type="button" class="btn-light contact-write">
                                 <span data-i18n="contactCta">Escribime</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l14 0" /><path d="M13 18l6 -6" /><path d="M13 6l6 6" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12l14 0" />
+                                    <path d="M13 18l6 -6" />
+                                    <path d="M13 6l6 6" />
+                                </svg>
                             </button>
-                            <a href="https://github.com/danieladelpino" target="_blank" rel="noopener" class="contact-link">GitHub</a>
-                            <a href="https://www.linkedin.com/in/daniela-del-pino/" target="_blank" rel="noopener" class="contact-link">LinkedIn</a>
-                            <a href="https://docs.google.com/document/d/1jO_4Hlw9E8ZW6rBDp8bQzK18vmWjG1sfsBeN01uuJuM/edit?usp=sharing" target="_blank" class="contact-link"><span data-i18n="cv">Descargar CV</span></a>
+                            <a href="https://github.com/danieladelpino" target="_blank" rel="noopener"
+                                class="contact-link">GitHub</a>
+                            <a href="https://www.linkedin.com/in/daniela-del-pino/" target="_blank" rel="noopener"
+                                class="contact-link">LinkedIn</a>
+                            <a href="https://docs.google.com/document/d/1jO_4Hlw9E8ZW6rBDp8bQzK18vmWjG1sfsBeN01uuJuM/edit?usp=sharing"
+                                target="_blank" class="contact-link"><span data-i18n="cv">Descargar CV</span></a>
                         </div>
 
                         <ul class="contact-details">
                             <li>
-                                <svg class="contact-icon-mail" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" /><path d="M3 7l9 6l9 -6" /></svg>
-                                <a href="mailto:danielaabigaildelpino@gmail.com" class="contact-email">danielaabigaildelpino@gmail.com</a>
+                                <svg class="contact-icon-mail" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path
+                                        d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z" />
+                                    <path d="M3 7l9 6l9 -6" />
+                                </svg>
+                                <a href="mailto:danielaabigaildelpino@gmail.com"
+                                    class="contact-email">danielaabigaildelpino@gmail.com</a>
                                 <button type="button" class="contact-copy"><span data-i18n="copy">Copiar</span></button>
                             </li>
                             <li>
-                                <svg class="contact-icon-pin" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" /><path d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" /></svg>
+                                <svg class="contact-icon-pin" xmlns="http://www.w3.org/2000/svg" width="18" height="18"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M9 11a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                                    <path
+                                        d="M17.657 16.657l-4.243 4.243a2 2 0 0 1 -2.827 0l-4.244 -4.243a8 8 0 1 1 11.314 0z" />
+                                </svg>
                                 Bahía Blanca, Buenos Aires
                             </li>
                         </ul>
@@ -204,7 +319,8 @@
                     <div class="contact-card">
                         <form class="contact-form" action="https://formspree.io/f/myyrndoy" method="POST" novalidate>
                             <h3 class="contact-form-title"><span data-i18n="formTitle">¡Enviame un mensaje!</span></h3>
-                            <p class="contact-form-subtitle"><span data-i18n="formSubtitle">Te respondo dentro de las 48 horas.</span></p>
+                            <p class="contact-form-subtitle"><span data-i18n="formSubtitle">Te respondo dentro de las 48
+                                    horas.</span></p>
 
                             <label class="field">
                                 <span class="field-label" data-i18n="formName">Nombre</span>
@@ -220,34 +336,46 @@
 
                             <label class="field">
                                 <span class="field-label" data-i18n="formMessage">Mensaje</span>
-                                <textarea name="mensaje" rows="4" required
-                                    placeholder="Contame sobre tu proyecto" data-i18n-placeholder="formMessagePh"></textarea>
+                                <textarea name="mensaje" rows="4" required placeholder="Contame sobre tu proyecto"
+                                    data-i18n-placeholder="formMessagePh"></textarea>
                             </label>
 
-                            <p class="contact-error" role="alert" hidden><span data-i18n="formError">Algo salió mal. Probá de nuevo o escribime por mail.</span></p>
+                            <p class="contact-error" role="alert" hidden><span data-i18n="formError">Algo salió mal.
+                                    Probá de nuevo o escribime por mail.</span></p>
 
                             <button type="submit" class="btn-primary contact-submit">
                                 <span class="contact-submit-text" data-i18n="formSend">Enviar mensaje</span>
-                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M10 14l11 -11" /><path d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M10 14l11 -11" />
+                                    <path
+                                        d="M21 3l-6.5 18a.55 .55 0 0 1 -1 0l-3.5 -7l-7 -3.5a.55 .55 0 0 1 0 -1l18 -6.5" />
+                                </svg>
                             </button>
                         </form>
 
                         <div class="contact-success" hidden>
                             <span class="contact-success-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l5 5l10 -10" /></svg>
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                    fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"
+                                    stroke-linejoin="round" aria-hidden="true">
+                                    <path d="M5 12l5 5l10 -10" />
+                                </svg>
                             </span>
                             <h3><span data-i18n="formSuccess">¡Mensaje enviado!</span></h3>
                             <p><span data-i18n="formSuccessText">Gracias por escribirme, te respondo pronto.</span></p>
-                            <button type="button" class="contact-again"><span data-i18n="formAgain">Enviar otro</span></button>
+                            <button type="button" class="contact-again"><span data-i18n="formAgain">Enviar
+                                    otro</span></button>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <footer class="site-footer">
+            <!-- <footer class="site-footer">
                 <p>© <span class="footer-year">2026</span> Daniela Del Pino</p>
                 <p><span data-i18n="footerMade">Hecho con código y café</span></p>
-            </footer>
+            </footer> -->
         </div>
     </div>
 
@@ -266,4 +394,5 @@
     <script src="js/main.js"></script>
 
 </body>
+
 </html>
